@@ -1,4 +1,4 @@
 /packages
 /.vs
-/bin
-/obj
+/Alura.Loja.Testes.ConsoleApp/bin
+/Alura.Loja.Testes.ConsoleApp/obj/Debug
