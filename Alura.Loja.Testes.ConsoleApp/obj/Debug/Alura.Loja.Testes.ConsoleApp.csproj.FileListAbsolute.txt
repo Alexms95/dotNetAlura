@@ -76,3 +76,4 @@ C:\Users\Alexms\Documents\Projetos\dotNetAlura\Alura.Loja.Testes.ConsoleApp\bin\
 C:\Users\Alexms\Documents\Projetos\dotNetAlura\Alura.Loja.Testes.ConsoleApp\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
 C:\Users\Alexms\Documents\Projetos\dotNetAlura\Alura.Loja.Testes.ConsoleApp\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.xml
 C:\Users\Alexms\Documents\Projetos\dotNetAlura\Alura.Loja.Testes.ConsoleApp\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Alexms\Documents\Projetos\dotNetAlura\Alura.Loja.Testes.ConsoleApp\obj\Debug\Alura.Loja.Testes.ConsoleApp.csprojAssemblyReference.cache
