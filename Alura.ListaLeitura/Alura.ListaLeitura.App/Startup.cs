@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 using System.Linq;
+using System.IO;
 
 namespace Alura.ListaLeitura.App
 {
@@ -26,10 +27,39 @@ namespace Alura.ListaLeitura.App
             builder.MapRoute("Livros/Lido", LivrosLidos);
             builder.MapRoute("Cadastro/NovoLivro/{nome}/{autor}", NovoLivroParaLer);
             builder.MapRoute("Livros/Detalhes/{id:int}", ExibirDetalhes);
+            builder.MapRoute("Cadastro/NovoLivro", ExibeFormulario);
+            builder.MapRoute("Cadastro/Incluir", ProcessaFormulario);
             IRouter rotas = builder.Build();
 
             app.UseRouter(rotas);
             //app.Run(Roteamento);
+        }
+
+        private Task ProcessaFormulario(HttpContext context)
+        {
+            Livro livro = new Livro
+            {
+                Titulo = context.Request.Query["Titulo"].First(),
+                Autor = context.Request.Query["Autor"].First()
+            };
+            LivroRepositorioCSV repo = new LivroRepositorioCSV();
+            repo.Incluir(livro);
+            return context.Response.WriteAsync("O livro foi adicionado com sucesso");
+        }
+
+        private Task ExibeFormulario(HttpContext context)
+        {
+            string formulario = CarregaArquivoHtml("formulario");
+            return context.Response.WriteAsync(formulario);
+        }
+
+        private string CarregaArquivoHtml(string nomeArquivo)
+        {
+            string nomeCompletoArquivo = $"HTML/{nomeArquivo}.html";
+            using (var arquivo = File.OpenText(nomeCompletoArquivo))
+            {
+                return arquivo.ReadToEnd();
+            };
         }
 
         private Task ExibirDetalhes(HttpContext context)
